@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>大前端说</title>
   
   
   <link href="http://example.com/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>shch</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2020/10/06/hello-world/"/>
-    <id>http://example.com/2020/10/06/hello-world/</id>
+    <link href="http://example.com/hello-world/"/>
+    <id>http://example.com/hello-world/</id>
     <published>2020-10-06T13:11:19.289Z</published>
     <updated>2020-10-06T13:11:19.289Z</updated>
     
