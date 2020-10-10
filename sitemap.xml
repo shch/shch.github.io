@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/FabricJs%E4%BD%BF%E7%94%A8-Group/</loc>
+    
+    <lastmod>2020-10-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/FabricJs%E4%BD%BF%E7%94%A8-%E6%96%87%E6%9C%AC/</loc>
     
     <lastmod>2020-10-09</lastmod>
@@ -25,7 +32,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-10-09</lastmod>
+    <lastmod>2020-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,7 +40,7 @@
   
   <url>
     <loc>http://example.com/tags/FabricJS/</loc>
-    <lastmod>2020-10-09</lastmod>
+    <lastmod>2020-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
