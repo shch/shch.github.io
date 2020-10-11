@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-10T10:51:03.498Z</updated>
+  <updated>2020-10-11T12:15:03.665Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FabricJs使用 -- 图片</title>
+    <link href="http://example.com/FabricJs%E4%BD%BF%E7%94%A8-%E5%9B%BE%E7%89%87/"/>
+    <id>http://example.com/FabricJs%E4%BD%BF%E7%94%A8-%E5%9B%BE%E7%89%87/</id>
+    <published>2020-10-11T12:03:04.000Z</published>
+    <updated>2020-10-11T12:15:03.665Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>使用 fabric.Image 可以方便的对图片做一些处理。</p><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ar imgElement &#x3D; document.getElementById(&#39;dog&#39;);</span><br><span class="line">            var imgInstance &#x3D; new fabric.Image(imgElement, &#123;</span><br><span class="line">                left: 50,</span><br><span class="line">                top: 50,</span><br><span class="line">                angle: 10,</span><br><span class="line">                opacity: 0.85</span><br><span class="line">            &#125;);</span><br><span class="line">canvas.add(imgInstance);</span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2020/10/11/6V2buYi7RCadMDI.png" alt="截屏2020-10-11 07.42.25.png"></p><h3 id="对图片做放大缩小和X方向翻转"><a href="#对图片做放大缩小和X方向翻转" class="headerlink" title="对图片做放大缩小和X方向翻转"></a>对图片做放大缩小和X方向翻转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fabric.Image.fromURL(&#39;dog.png&#39;, function(oImg) &#123;</span><br><span class="line">    &#x2F;&#x2F; scale image down, and flip it, before adding it onto canvas</span><br><span class="line">    oImg.scale(0.5).set(&#39;flipX&#39;, true);</span><br><span class="line">    canvas.add(oImg);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2020/10/11/gYZbOU1CKTVuL3v.png" alt="截屏2020-10-11 07.42.01.png"></p><h3 id="图片滤镜"><a href="#图片滤镜" class="headerlink" title="图片滤镜"></a>图片滤镜</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  fabric.Image.fromURL(&#39;https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;10&#x2F;11&#x2F;uI4qfivbyAKsOQ9.png&#39;, (img) &#x3D;&gt; &#123;</span><br><span class="line">    img.filters.push(new fabric.Image.filters.Grayscale());</span><br><span class="line">    img.applyFilters();</span><br><span class="line">    canvas.add(img);</span><br><span class="line">&#125;, &#123;crossOrigin: &#39;anonymous&#39;&#125;);</span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2020/10/11/Bz3DNAijeSCsI4n.png" alt="截屏2020-10-11 07.54.19.png"></p><p>需要考虑一个 crossOrigin的问题</p><h3 id="给滤镜加多个参数"><a href="#给滤镜加多个参数" class="headerlink" title="给滤镜加多个参数"></a>给滤镜加多个参数</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fabric.Image.fromURL(&#39;https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;10&#x2F;11&#x2F;uI4qfivbyAKsOQ9.png&#39;, (img) &#x3D;&gt; &#123;</span><br><span class="line">        img.filters.push(new fabric.Image.filters.Sepia());</span><br><span class="line">        new fabric.Image.filters.Brightness(&#123; brightness: 100 &#125;);</span><br><span class="line">        img.applyFilters();</span><br><span class="line">        canvas.add(img);</span><br><span class="line">    &#125;, &#123;crossOrigin: &#39;anonymous&#39;&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2020/10/11/cCh6i9bOKqXUskB.png" alt="截屏2020-10-11 07.54.46.png"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol><li><a href="http://fabricjs.com/">官网地址</a>  </li></ol><h3 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h3><p>关注微信号:大前端说，获取文章中提到的代码案例。库使用过程有什么问题，可以跟我沟通，加我的wx:meetbc。欢迎交流关于前端的任何话题。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;图片&quot;&gt;&lt;a href=&quot;#图片&quot; class=&quot;headerlink&quot; title=&quot;图片&quot;&gt;&lt;/a&gt;图片&lt;/h2&gt;&lt;p&gt;使用 fabric.Image 可以方便的对图片做一些处理。&lt;/p&gt;
+&lt;h3 id=&quot;举例&quot;&gt;&lt;a href=&quot;#举例&quot; class=&quot;he</summary>
+      
+    
+    
+    
+    
+    <category term="FabricJS" scheme="http://example.com/tags/FabricJS/"/>
+    
+  </entry>
   
   <entry>
     <title>FabricJs使用 -- Group</title>
