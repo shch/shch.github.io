@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang=cn>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>FabricJs项目【简易画板】--直线 | 大前端说</title>
+  <meta name="description" content="b站 FabricJs项目【简易画板】–自由画笔 fabricjs 相关代码1234567891011121314151617&lt;template&gt;  &lt;div class&#x3D;&quot;home&quot;&gt;    &lt;div class&#x3D;&quot;btnwrap&quot;&gt;      &lt;div @click&#x3D;&quot;ch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FabricJs项目【简易画板】--直线">
+<meta property="og:url" content="http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/index.html">
+<meta property="og:site_name" content="大前端说">
+<meta property="og:description" content="b站 FabricJs项目【简易画板】–自由画笔 fabricjs 相关代码1234567891011121314151617&lt;template&gt;  &lt;div class&#x3D;&quot;home&quot;&gt;    &lt;div class&#x3D;&quot;btnwrap&quot;&gt;      &lt;div @click&#x3D;&quot;ch">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-22T00:52:30.000Z">
+<meta property="article:modified_time" content="2020-10-22T01:16:35.080Z">
+<meta property="article:author" content="shch">
+<meta property="article:tag" content="FabricJS">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="大前端说" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/shch" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">大前端说</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/shch" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/shch1289" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/shch1289" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/shch1289" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎来加wx:meetbc, 一起交流与分享</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FabricJS/" rel="tag">FabricJS</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/FabricJS/" style="font-size: 13px;">FabricJS</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/" class="title">FabricJs项目【简易画板】--直线</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-22T00:52:30.000Z" itemprop="datePublished">2020-10-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E8%87%AA%E7%94%B1%E7%94%BB%E7%AC%94/" class="title">FabricJs项目【简易画板】--自由画笔</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-15T14:48:56.000Z" itemprop="datePublished">2020-10-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E7%AC%94%E3%80%91-%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" class="title">FabricJs项目【简易画板】--项目搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-12T14:48:56.000Z" itemprop="datePublished">2020-10-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/FabricJs%E4%BD%BF%E7%94%A8-%E5%9B%BE%E7%89%87/" class="title">FabricJs使用 -- 图片</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-11T12:03:04.000Z" itemprop="datePublished">2020-10-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/FabricJs%E4%BD%BF%E7%94%A8-Group/" class="title">FabricJs使用 -- Group</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-10T10:39:25.000Z" itemprop="datePublished">2020-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-FabricJs项目【简易画板】-直线" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FabricJs项目【简易画板】--直线
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/" class="article-date">
+	  <time datetime="2020-10-22T00:52:30.000Z" itemprop="datePublished">2020-10-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/FabricJS/" rel="tag">FabricJS</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 737(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vr4y1w79h//">b站 FabricJs项目【简易画板】–自由画笔</a></p>
+<h3 id="fabricjs-相关代码"><a href="#fabricjs-相关代码" class="headerlink" title="fabricjs 相关代码"></a>fabricjs 相关代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;home&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;btnwrap&quot;&gt;</span><br><span class="line">      &lt;div @click&#x3D;&quot;changeBrushColor()&quot; class&#x3D;&quot;brushColor&quot; ref&#x3D;&quot;brushColor&quot;&gt;</span><br><span class="line">        &lt;chrome-picker class&#x3D;&quot;colorPicker&quot; :value&#x3D;&quot;colors&quot; @input&#x3D;&quot;updateValue&quot; v-if&#x3D;&quot;showColorPicker&quot;&gt;&lt;&#x2F;chrome-picker&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;brushWidth&quot;&gt;</span><br><span class="line">         &lt;label &gt;画笔线条粗细:&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;range&quot; name&#x3D;&quot;vol&quot; min&#x3D;&quot;1&quot; max&#x3D;&quot;50&quot; v-model&#x3D;&quot;width&quot;&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;freeDraw()&quot; class&#x3D;&quot;freeDrawBtn&quot;&gt;自由绘制&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;lineDraw()&quot; class&#x3D;&quot;lineDrawBtn&quot;&gt;直线&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;button @click&#x3D;&quot;clear()&quot; class&#x3D;&quot;clearBtn&quot;&gt;清除&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;canvas id&#x3D;&quot;c&quot; width&#x3D;&quot;1440&quot; height&#x3D;&quot;600&quot;&gt;&lt;&#x2F;canvas&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      colors:&#39;#000000&#39;,</span><br><span class="line">      width:1,</span><br><span class="line">      strokeWidth:1,</span><br><span class="line">      showColorPicker:false,</span><br><span class="line">      canvas:null,</span><br><span class="line">      drawingObject:null,</span><br><span class="line">      mouseFrom: &#123;&#125;,</span><br><span class="line">      mouseTo: &#123;&#125;,</span><br><span class="line">      currentType:&#39;free&#39;,</span><br><span class="line">      idDrawing:false,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    width: function (val) &#123;</span><br><span class="line">      console.log(val);</span><br><span class="line">      this.canvas.freeDrawingBrush.width &#x3D; parseInt(this.width, 10);</span><br><span class="line">      this.strokeWidth &#x3D; parseInt(this.width, 10);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    initBrushColor()&#123;</span><br><span class="line">      this.$refs.brushColor.style.backgroundColor &#x3D; this.colors;</span><br><span class="line">    &#125;,</span><br><span class="line">    updateValue(val)&#123;</span><br><span class="line">      console.log(val);</span><br><span class="line">      this.colors &#x3D; val.hex;</span><br><span class="line">      this.initBrushColor();</span><br><span class="line">      this.canvas.freeDrawingBrush.color &#x3D; this.colors;</span><br><span class="line">    &#125;,</span><br><span class="line">    changeBrushColor()&#123;</span><br><span class="line">      this.showColorPicker &#x3D; !this.showColorPicker;</span><br><span class="line">    &#125;,</span><br><span class="line">    initfreeDraw()&#123;</span><br><span class="line">      if(this.canvas &#x3D;&#x3D; null)&#123;</span><br><span class="line">        this.canvas &#x3D; new fabric.Canvas(&quot;c&quot;);</span><br><span class="line">        this.canvas.backgroundColor &#x3D; &#39;#efefef&#39;;</span><br><span class="line">        this.canvas.isDrawingMode&#x3D; 1;</span><br><span class="line">      &#125;</span><br><span class="line">      this.canvas.freeDrawingBrush.color &#x3D; this.colors;</span><br><span class="line">      this.canvas.freeDrawingBrush.width &#x3D; this.width;</span><br><span class="line">      this.canvas.renderAll();</span><br><span class="line">    &#125;,</span><br><span class="line">    freeDraw()&#123;</span><br><span class="line">      this.canvas.isDrawingMode &#x3D; true;</span><br><span class="line">      this.currentType &#x3D; &#39;free&#39;;</span><br><span class="line">      this.resetLine();</span><br><span class="line">    &#125;,</span><br><span class="line">    lineDraw()&#123;</span><br><span class="line">      this.currentType &#x3D; &#39;line&#39;;</span><br><span class="line">      this.ininLine();</span><br><span class="line">      this.resetLine();</span><br><span class="line">    &#125;,</span><br><span class="line">    ininLine()&#123;</span><br><span class="line">      this.canvas.isDrawingMode &#x3D; false;</span><br><span class="line">      this.canvas.selection &#x3D; false;</span><br><span class="line">      let canvasObject &#x3D; new fabric.Line([this.mouseFrom.x, this.mouseFrom.y, this.mouseTo.x, this.mouseTo.y], &#123;</span><br><span class="line">        fill: this.colors,</span><br><span class="line">        stroke: this.colors,</span><br><span class="line">        strokeWidth: this.strokeWidth</span><br><span class="line">      &#125;);</span><br><span class="line">      canvasObject.selectable &#x3D; false;</span><br><span class="line">      if (this.drawingObject) &#123;</span><br><span class="line">        this.canvas.remove(this.drawingObject);</span><br><span class="line">      &#125;</span><br><span class="line">      this.canvas.add(canvasObject);</span><br><span class="line">      this.drawingObject &#x3D; canvasObject;</span><br><span class="line">    &#125;,</span><br><span class="line">    initEvent()&#123;</span><br><span class="line">      this.canvas.on(&#39;mouse:down&#39;, (options) &#x3D;&gt; &#123;</span><br><span class="line">        if(this.currentType &#x3D;&#x3D; &#39;line&#39;)&#123;</span><br><span class="line">          this.mouseFrom.x &#x3D; options.e.clientX;</span><br><span class="line">          this.mouseFrom.y &#x3D; options.e.clientY - 50;</span><br><span class="line">          this.idDrawing &#x3D; true;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      this.canvas.on(&#39;mouse:move&#39;, (options) &#x3D;&gt; &#123;</span><br><span class="line">        if(this.idDrawing &amp;&amp; this.currentType &#x3D;&#x3D; &#39;line&#39;)&#123;</span><br><span class="line">          this.mouseTo.x &#x3D; options.e.clientX;</span><br><span class="line">          this.mouseTo.y &#x3D; options.e.clientY - 50;</span><br><span class="line">          this.ininLine();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      this.canvas.on(&quot;mouse:up&quot;, (options) &#x3D;&gt; &#123;</span><br><span class="line">        if(this.currentType &#x3D;&#x3D; &#39;line&#39;)&#123;</span><br><span class="line">          this.mouseTo.x &#x3D; options.e.clientX;</span><br><span class="line">          this.mouseTo.y &#x3D; options.e.clientY - 50;</span><br><span class="line">          this.drawingObject &#x3D; null;</span><br><span class="line">          this.idDrawing &#x3D; false;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;); </span><br><span class="line">       </span><br><span class="line">    &#125;,</span><br><span class="line">    resetLine()&#123;</span><br><span class="line">      this.mouseFrom &#x3D; &#123;&#125;;</span><br><span class="line">      this.mouseTo &#x3D; &#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    clear()&#123;</span><br><span class="line">      this.canvas.clear();</span><br><span class="line">      this.canvas.backgroundColor &#x3D; &#39;#efefef&#39;;</span><br><span class="line">      this.resetLine();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted()&#123;</span><br><span class="line">    this.initBrushColor();</span><br><span class="line">    this.initfreeDraw();</span><br><span class="line">    this.initEvent();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="一点说明"><a href="#一点说明" class="headerlink" title="一点说明"></a>一点说明</h3><p>主要的思路就是点击事件的监听，然后区分当前是在什么模式下，具体可以看代码实现。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a target="_blank" rel="noopener" href="http://fabricjs.com/">官网地址</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/shch/vuefabric">github 项目地址</a></li>
+</ol>
+<h3 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h3><p>加我的wx:meetbc,关注我的公众号:大前端说。欢迎交流关于前端的任何话题。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/" title="FabricJs项目【简易画板】--直线" target="_blank" rel="external">http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E7%9B%B4%E7%BA%BF/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/shch" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/shch" target="_blank"><span class="text-dark">大前端说</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>关于前端的任何话题</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E8%87%AA%E7%94%B1%E7%94%BB%E7%AC%94/" title="FabricJs项目【简易画板】--自由画笔"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/shch" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/shch1289" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/shch1289" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/shch1289" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
