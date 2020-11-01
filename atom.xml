@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-28T14:25:34.629Z</updated>
+  <updated>2020-11-01T14:24:36.883Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FabricJs项目【简易画板】--本地图片</title>
+    <link href="http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"/>
+    <id>http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</id>
+    <published>2020-11-01T13:44:00.000Z</published>
+    <updated>2020-11-01T14:24:36.883Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV15t4y1e7Jw/">b站 FabricJs项目【简易画板】–本地图片</a></p><h3 id="fabricjs-相关代码"><a href="#fabricjs-相关代码" class="headerlink" title="fabricjs 相关代码"></a>fabricjs 相关代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click&#x3D;&quot;imgDraw()&quot; class&#x3D;&quot;imgDrawBtn&quot;&gt;本地图片&lt;&#x2F;button&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;file&quot; accept&#x3D;&quot;image&#x2F;*&quot; style&#x3D;&quot;display:none&quot; id&#x3D;&quot;uploadfile&quot; @change&#x3D;&quot;uploadFile&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">imgDraw()&#123;</span><br><span class="line">    document.getElementById(&quot;uploadfile&quot;).click();</span><br><span class="line">&#125;,</span><br><span class="line">uploadFile(e)&#123;</span><br><span class="line">    this.canvas.isDrawingMode &#x3D; false;</span><br><span class="line">    this.removeTextObject();</span><br><span class="line">    var file &#x3D; e.target.files[0];</span><br><span class="line">    var reader &#x3D; new FileReader();</span><br><span class="line">    reader.onload &#x3D; (e) &#x3D;&gt; &#123;</span><br><span class="line">    var data &#x3D; e.target.result;                    </span><br><span class="line">    fabric.Image.fromURL(data, (img) &#x3D;&gt; &#123; </span><br><span class="line">        this.canvas.add(img).renderAll();</span><br><span class="line">    &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    reader.readAsDataURL(file);</span><br><span class="line">    e.target.value&#x3D;&#39;&#39;;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h3><p>第二次加载本地图片的时候如果和第一张相同，那是不会触发onchange那个方法的，所以我们需要把上一个值设为空</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol><li><a href="http://fabricjs.com/">官网地址</a>  </li><li><a href="https://github.com/shch/vuefabric">github 项目地址</a></li></ol><h3 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h3><p>加我的wx:wx:meethaowu,关注我的公众号:大前端说。欢迎交流关于前端的任何话题。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV15t4y1e7Jw/&quot;&gt;b站 FabricJs项目【简易画板】–本地图片&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;fabricjs-相关代码&quot;&gt;&lt;a href=&quot;#fabricjs-相关代码&quot; c</summary>
+      
+    
+    
+    
+    
+    <category term="FabricJS" scheme="http://example.com/tags/FabricJS/"/>
+    
+  </entry>
   
   <entry>
     <title>FabricJs项目【简易画板】--文本</title>
