@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-11-03T13:17:31.159Z</updated>
+  <updated>2020-11-03T13:53:16.919Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,11 +21,21 @@
     <link href="http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E6%92%A4%E9%94%80-%E9%87%8D%E5%81%9A/"/>
     <id>http://example.com/FabricJs%E9%A1%B9%E7%9B%AE%E3%80%90%E7%AE%80%E6%98%93%E7%94%BB%E6%9D%BF%E3%80%91-%E6%92%A4%E9%94%80-%E9%87%8D%E5%81%9A/</id>
     <published>2020-11-03T13:17:31.000Z</published>
-    <updated>2020-11-03T13:17:31.159Z</updated>
+    <updated>2020-11-03T13:53:16.919Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1Fz4y1y7gE/">b站 FabricJs项目【简易画板】–撤销&amp;重做</a></p><h3 id="fabricjs-相关代码"><a href="#fabricjs-相关代码" class="headerlink" title="fabricjs 相关代码"></a>fabricjs 相关代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> &lt;button @click&#x3D;&quot;undoDraw()&quot; class&#x3D;&quot;undoBtn&quot; &gt;撤销&lt;&#x2F;button&gt;</span><br><span class="line"> &lt;button @click&#x3D;&quot;redoDraw()&quot; class&#x3D;&quot;redoBtn&quot; &gt;重做&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">this.canvas.on(&#39;object:added&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    if(this.isRedoing &#x3D;&#x3D; false)&#123;</span><br><span class="line">        this.stateArr &#x3D; [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line">undoDraw()&#123;</span><br><span class="line">    if(this.canvas._objects.length &gt; 0)&#123;</span><br><span class="line">    this.stateArr.push(this.canvas._objects.pop());</span><br><span class="line">    this.canvas.renderAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">redoDraw()&#123;</span><br><span class="line">    if(this.stateArr.length &gt; 0)&#123;</span><br><span class="line">    this.isRedoing &#x3D; true;</span><br><span class="line">    this.canvas.add(this.stateArr.pop());</span><br><span class="line">    this.canvas.renderAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><h3 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h3><p>就是维护一个数组，当撤销的时候就往数组里面加object，等重做的时候再往canvas里面加回去。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol><li><a href="http://fabricjs.com/">官网地址</a>  </li><li><a href="https://github.com/shch/vuefabric">github 项目地址</a></li></ol><h3 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h3><p>加我的wx:wx:meethaowu,关注我的公众号:大前端说。欢迎交流关于前端的任何话题。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1Fz4y1y7gE/&quot;&gt;b站 FabricJs项目【简易画板】–撤销&amp;amp;重做&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;fabricjs-相关代码&quot;&gt;&lt;a href=&quot;#fabricjs-相关</summary>
+      
     
     
     
     
+    <category term="FabricJS" scheme="http://example.com/tags/FabricJS/"/>
     
   </entry>
   
