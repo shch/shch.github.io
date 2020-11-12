@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/CodeMirror%E9%A1%B9%E7%9B%AE%E3%80%90%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%91-Emmet%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/</loc>
+    
+    <lastmod>2020-11-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/CodeMirror%E9%A1%B9%E7%9B%AE%E3%80%90%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%91-%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2020-11-11</lastmod>
@@ -123,7 +130,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-11-11</lastmod>
+    <lastmod>2020-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -131,14 +138,14 @@
   
   <url>
     <loc>http://example.com/tags/FabricJS/</loc>
-    <lastmod>2020-11-11</lastmod>
+    <lastmod>2020-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/CodeMirror/</loc>
-    <lastmod>2020-11-11</lastmod>
+    <lastmod>2020-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
